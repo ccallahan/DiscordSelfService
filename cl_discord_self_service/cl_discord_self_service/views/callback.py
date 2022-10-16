@@ -16,7 +16,7 @@ def callback_view(request):
     auth_code = request.params['code']
 
     tokens = discord_auth.get_tokens(auth_code)
-    session['magick'] = tokens
+    session['magick'] == tokens
     return HTTPFound(location="/")
 
 
