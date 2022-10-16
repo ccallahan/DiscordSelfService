@@ -9,7 +9,7 @@ import os
 @view_config(route_name='callback')
 def callback_view(request):
     configure = ConfigParser()
-    configure.read('config.ini')
+    configure.read('/opt/DiscordSelfService/cl_discord_self_service/config.ini')
 
     client_id = configure.get('discord', 'client-id')
     client_secret = configure.get('discord', 'client_secret')

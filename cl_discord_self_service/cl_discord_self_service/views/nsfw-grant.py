@@ -8,7 +8,7 @@ import requests
 @view_config(route_name='nsfw_grant')
 def my_view(request):
     configure = ConfigParser()
-    configure.read('config.ini')
+    configure.read('/opt/DiscordSelfService/cl_discord_self_service/config.ini')
 
     stripe.api_key = configure.get('stripe','secret-key')
     endpoint_secret = configure.get('stripe', 'webhook-key')

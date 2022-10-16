@@ -6,7 +6,7 @@ from configparser import ConfigParser
 @view_config(route_name='home', renderer='cl_discord_self_service:templates/home.jinja2')
 def my_view(request):
     configure = ConfigParser()
-    configure.read('config.ini')
+    configure.read('/opt/DiscordSelfService/cl_discord_self_service/config.ini')
 
     client_id = configure.get('discord', 'client-id')
     client_secret = configure.get('discord', 'client_secret')
