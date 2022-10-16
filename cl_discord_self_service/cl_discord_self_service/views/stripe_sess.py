@@ -10,7 +10,7 @@ def my_view(request):
     client_id = os.environ['CLIENT_ID']
     client_secret = os.environ['CLIENT_SECRET']
     callback_url = os.environ['CALLBACK_URL']
-    stripe.api_key = 'sk_test_51LtIR9A8Urc1SRYguyPEvVd5cmkXAXPoW8hrFbX6vCl54vhlLySvLiAuDwZu4IY0xWSiZVoD4sUaYq33LIi22EIX00gvyVylT7'
+    stripe.api_key = os.environ['STRIPE_SECRET']
 
 
     discord_auth = DiscordAuth(client_id, client_secret, callback_url)
