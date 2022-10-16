@@ -3,13 +3,17 @@ from urllib import response
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound
 from discord_oauth2 import DiscordAuth
+from configparser import ConfigParser
 import os
 
 @view_config(route_name='callback')
 def callback_view(request):
-    client_id = os.environ['CLIENT_ID']
-    client_secret = os.environ['CLIENT_SECRET']
-    callback_url = os.environ['CALLBACK_URL']
+    configure = ConfigParser()
+    configure.read('config.ini')
+
+    client_id = configure.get('discord', 'client-id')
+    client_secret = configure.get('discord', 'client_secret')
+    callback_url = configure.get('discord', 'callback-url')
 
     discord_auth = DiscordAuth(client_id, client_secret, callback_url)
     session = request.session
