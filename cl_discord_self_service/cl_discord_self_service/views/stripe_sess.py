@@ -10,7 +10,8 @@ def my_view(request):
     client_id = os.environ['CLIENT_ID']
     client_secret = os.environ['CLIENT_SECRET']
     callback_url = os.environ['CALLBACK_URL']
-    stripe.api_key = os.environ['STRIPE_SECRET']
+    api_key = os.environ['STRIPE_SECRET']
+    stripe.api_key = api_key
 
 
     discord_auth = DiscordAuth(client_id, client_secret, callback_url)
@@ -21,6 +22,7 @@ def my_view(request):
     # Authenticate your user.
 
     # Create the session.
+
     verification_session = stripe.identity.VerificationSession.create(
     type='document',
     metadata={
