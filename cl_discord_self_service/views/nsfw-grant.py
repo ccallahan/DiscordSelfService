@@ -1,17 +1,12 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-from configparser import ConfigParser
-import stripe
-import requests
+import stripe, requests, os
 
 
 @view_config(route_name='nsfw_grant')
 def my_view(request):
-    configure = ConfigParser()
-    configure.read('/opt/DiscordSelfService/cl_discord_self_service/config.ini')
-
-    stripe.api_key = configure.get('stripe','secret-key')
-    endpoint_secret = configure.get('stripe', 'webhook-key')
+    stripe.api_key = os.environ['STRIPE_API']
+    endpoint_secret = os.environ['STRIPE_KEY']
 
     app_token = configure.get('discord', 'app-token')
     user_profile_header = {"Authorization": "Bot " + app_token}
