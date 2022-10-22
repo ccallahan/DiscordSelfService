@@ -5,8 +5,8 @@ import stripe, requests, os
 
 @view_config(route_name='nsfw_grant')
 def my_view(request):
-    stripe.api_key = os.environ['STRIPE_API']
-    endpoint_secret = os.environ['STRIPE_KEY']
+    stripe.api_key = os.environ['STRIPE_SECRET']
+    endpoint_secret = os.environ['STRIPE_WHSEC']
 
     app_token = configure.get('discord', 'app-token')
     user_profile_header = {"Authorization": "Bot " + app_token}
