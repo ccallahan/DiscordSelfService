@@ -1,9 +1,9 @@
 from pyramid.config import Configurator
 from pyramid.session import SignedCookieSessionFactory
-import random
+import os
 
 def main(global_config, **settings):
-    env_secret = str(random.getrandbits(128))
+    env_secret = os.environ['MAGICK']
     my_session_factory = SignedCookieSessionFactory(env_secret)
 
     """ This function returns a Pyramid WSGI application.
