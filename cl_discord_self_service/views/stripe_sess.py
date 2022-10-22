@@ -1,7 +1,7 @@
 from pyramid.response import Response
 from pyramid.view import view_config
 from discord_oauth2 import DiscordAuth
-import stripe
+import stripe, os
 
 
 @view_config(route_name='stripe_sess')
