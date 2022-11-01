@@ -30,7 +30,10 @@ def my_view(request):
             "yinmn": "956594507263148032",
             "grape": "722467658792042567",
             "magenta": "722464493187104768",
-            "pink": "722506272968147034"}
+            "pink": "722506272968147034",
+            "ow_gamers": "1036478630483738634",
+            "watch_party": "945546331127185539",
+            "writing_corner": "971198084640018462"}
 
     user_profile_header = {"Authorization": "Bot " + app_token}
     user_profile_req = requests.get('https://discord.com/api/guilds/71992212115697664/members/' + user_id, headers=user_profile_header)
