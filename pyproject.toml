@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "cl-discord-self-service"
+version = "1.0.0"
+description = "Discord Self-Service Application"
+authors = ["Chance Callahan <chance@chancecallahan.com>"]
+license = "MIT License"
+readme = "README.txt"
+packages = [{include = "cl_discord_self_service"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+plaster-dynaconf = "^0.1.0"
+pyramid = "^2.0"
+pyramid-jinja2 = "^2.10"
+pyramid-debugtoolbar = "^4.9"
+stripe = "^5.0.0"
+discord-oauth2 = "^0.2"
+waitress = "^2.1.2"
+
+[tool.poetry.plugins."paste.app_factory"]
+main = "cl_discord_self_service:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
